@@ -1,0 +1,25 @@
+# ROS 2 build artifacts
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# Map recordings and run logs (large, not for the repository)
+*.db3
+*.mcap
+maps/*.pgm
+maps/*.yaml
+
+# Editors
+.vscode/
+.idea/
+*.swp
