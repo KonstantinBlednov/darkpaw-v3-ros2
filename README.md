@@ -27,8 +27,8 @@ quirks that every tutorial silently walks past.
 | Stage | What happens | Status |
 |:--:|---|:--:|
 | 0 | Bring-up: ROS 2, network, LiDAR driver, all 12 servos driven directly via PCA9685 | ✅ done |
-| 1 | Control contour: `/cmd_vel` subscriber node + `teleop_twist_keyboard` | 🚧 in progress |
-| 2 | Gait controller `darkpaw_gait`: leg inverse kinematics, trot gait | ⬜ |
+| 1 | Control contour: `/cmd_vel` subscriber node + `teleop_twist_keyboard` | ✅ done |
+| 2 | Gait controller `darkpaw_gait`: leg inverse kinematics, trot gait | 🚧 in progress |
 | 3 | RViz2 on macOS over DDS (wireless visualization) | ⬜ |
 | 4 | `rf2o_laser_odometry` + `slam_toolbox`, room map | ⬜ |
 | 5 | Nav2: reach a goal 1–2 m away and stop there | ⬜ |
@@ -79,6 +79,7 @@ scripts/
 docs/
   hardware.md             board, addresses, registers, power, GPIO
   stage0.md               what was verified on hardware (stage 0)
+  stage1.md               /cmd_vel contour and keyboard teleoperation
 src/
   darkpaw_test/           ROS 2 package: /cmd_vel subscriber that logs incoming commands
 ```
@@ -99,8 +100,8 @@ At the end hold torque is released (`off_tick = 0`) so the motors do not heat up
 ## Roadmap
 
 - [x] Stage 0 — bring-up and servo bring-up
-- [ ] Stage 1 — `/cmd_vel` contour
-- [ ] Stage 2 — keyboard-driven gait
+- [x] Stage 1 — `/cmd_vel` contour
+- [ ] Stage 2 — keyboard-driven gait  ← current
 - [ ] Stage 3 — RViz2 on macOS
 - [ ] Stage 4 — SLAM and a room map
 - [ ] Stage 5 — Nav2 goal-reaching
