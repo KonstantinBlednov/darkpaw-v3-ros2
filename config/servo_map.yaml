@@ -1,0 +1,54 @@
+# Servo map for Adeept DarkPaw-V3 (PCA9685 on the Adeept Robot HAT V3.3).
+#
+# STATUS: HYPOTHESIS, taken from the vendor wiring/exploded diagram.
+# Nothing moves until every channel below is confirmed on the hardware
+# (procedure: docs/servo-map.md, stage 2 step 1).
+#
+# Fields per joint:
+#   channel : PCA9685 channel 0..15
+#   sign    : +1 / -1, direction of "positive" motion relative to the generic convention
+#   trim_us : pulse width, in microseconds, that puts this joint at its mechanical center
+#             (per-servo, measured; 1500 is only a starting guess)
+
+pca9685:
+  i2c_bus: 1
+  address: 0x5F
+  frequency_hz: 50
+  prescale: 0x79
+
+pulse_us:
+  min: 1100
+  center: 1500
+  max: 1900
+
+legs:
+  # Vendor calls these Leg 1..4. FL/FR/RL/RR assignment (front vs rear) must be
+  # confirmed visually at the first movement.
+  FL:
+    vendor_name: "Leg 1"
+    verified: false
+    joints:
+      abduct: {channel: 0, sign: +1, trim_us: 1500}
+      thigh: {channel: 2, sign: +1, trim_us: 1500}
+      knee: {channel: 1, sign: +1, trim_us: 1500}
+  RL:
+    vendor_name: "Leg 2"
+    verified: false
+    joints:
+      abduct: {channel: 5, sign: +1, trim_us: 1500}
+      thigh: {channel: 4, sign: +1, trim_us: 1500}
+      knee: {channel: 3, sign: +1, trim_us: 1500}
+  FR:
+    vendor_name: "Leg 3"
+    verified: false
+    joints:
+      abduct: {channel: 6, sign: +1, trim_us: 1500}
+      thigh: {channel: 8, sign: +1, trim_us: 1500}
+      knee: {channel: 7, sign: +1, trim_us: 1500}
+  RR:
+    vendor_name: "Leg 4"
+    verified: false
+    joints:
+      abduct: {channel: 11, sign: +1, trim_us: 1500}
+      thigh: {channel: 10, sign: +1, trim_us: 1500}
+      knee: {channel: 9, sign: +1, trim_us: 1500}
